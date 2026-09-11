@@ -80,3 +80,4 @@ export const BudgetForm = ({ onSubmit, onCancel }) => {
     </form>
   );
 };
+
