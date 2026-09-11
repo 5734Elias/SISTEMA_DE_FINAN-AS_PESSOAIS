@@ -105,3 +105,4 @@ export const AssetForm = ({ onSubmit, onCancel }) => {
     </form>
   );
 };
+

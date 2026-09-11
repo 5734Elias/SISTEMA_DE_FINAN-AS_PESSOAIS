@@ -113,6 +113,22 @@
   flex-direction: column;
   gap: var(--spacing-md);
   box-shadow: var(--shadow-sm);
+  transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.22s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: default;
+
+  &:hover {
+    transform: translateY(-4px) scale(1.015);
+    border-color: var(--color-primary);
+    box-shadow: 0 12px 24px -6px rgba(37, 99, 235, 0.16),
+                0 0 0 1px rgba(37, 99, 235, 0.25);
+  }
+
+  &:active {
+    transform: translateY(-1px) scale(1.005);
+    box-shadow: 0 6px 14px -3px rgba(37, 99, 235, 0.25);
+  }
 
   &__header {
     display: flex;
@@ -171,4 +187,3 @@
     color: var(--color-text-secondary);
   }
 }
-
