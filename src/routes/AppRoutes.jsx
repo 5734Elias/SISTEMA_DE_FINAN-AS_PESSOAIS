@@ -5,9 +5,9 @@ import { ROUTES } from './routePaths';
 // Pages
 import Dashboard from '../pages/Dashboard';
 import Transactions from '../pages/Transactions';
+import Accounts from '../pages/Accounts';
 
-// Placeholder pages (futuras etapas)
-const Accounts = () => <div><h2>Contas</h2><p>Em construção...</p></div>;
+// Placeholder pages
 const Budgets = () => <div><h2>Orçamentos</h2><p>Em construção...</p></div>;
 const NotFound = () => <div><h2>Página não encontrada</h2></div>;
 

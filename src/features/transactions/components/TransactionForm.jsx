@@ -110,3 +110,4 @@ export const TransactionForm = ({ onSubmit, onCancel }) => {
     </form>
   );
 };
+
