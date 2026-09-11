@@ -4,3 +4,4 @@ export const ROUTES = {
   ACCOUNTS: '/accounts',
   BUDGETS: '/budgets',
 };
+

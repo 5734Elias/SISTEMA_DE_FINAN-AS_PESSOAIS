@@ -2,8 +2,10 @@ import { Routes, Route } from 'react-router-dom';
 import { AppLayout } from '../layouts/AppLayout';
 import { ROUTES } from './routePaths';
 
+// Pages
+import Dashboard from '../pages/Dashboard';
+
 // Placeholder pages (serão substituídas nas próximas fases)
-const Dashboard = () => <div><h2>Dashboard</h2><p>Visão geral em construção...</p></div>;
 const Transactions = () => <div><h2>Transações</h2><p>Em construção...</p></div>;
 const Accounts = () => <div><h2>Contas</h2><p>Em construção...</p></div>;
 const Budgets = () => <div><h2>Orçamentos</h2><p>Em construção...</p></div>;

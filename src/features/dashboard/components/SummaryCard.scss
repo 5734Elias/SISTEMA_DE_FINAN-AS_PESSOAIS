@@ -1,0 +1,55 @@
+.summary-card {
+  &__body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-lg);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+
+  &__title {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    font-weight: 500;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  &__value {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0;
+  }
+
+  &__icon {
+    font-size: 2rem;
+    color: var(--color-text-secondary);
+    opacity: 0.8;
+  }
+
+  // Variations (apenas nuances de cor no ícone ou borda, evitando coloração excessiva)
+  &--success {
+    .summary-card__icon {
+      color: var(--color-success);
+    }
+  }
+
+  &--danger {
+    .summary-card__icon {
+      color: var(--color-danger);
+    }
+  }
+
+  &--primary {
+    .summary-card__icon {
+      color: var(--color-primary);
+    }
+  }
+}
