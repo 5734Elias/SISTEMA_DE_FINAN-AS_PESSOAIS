@@ -41,3 +41,4 @@ export const CardFooter = ({ children, className, ...props }) => {
 Card.Header = CardHeader;
 Card.Body = CardBody;
 Card.Footer = CardFooter;
+

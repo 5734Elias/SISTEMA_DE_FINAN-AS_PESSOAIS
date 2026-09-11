@@ -1,0 +1,114 @@
+@use '../../../styles/abstracts/breakpoints' as *;
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 280px;
+  background-color: var(--color-surface);
+  border-right: 1px solid var(--color-border);
+  z-index: 100;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+
+  &--open {
+    transform: translateX(0);
+  }
+
+  @include respond-to('lg') {
+    transform: translateX(0);
+    z-index: 1;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    padding: 0 var(--spacing-lg);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  &__brand {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--color-primary);
+    margin: 0;
+  }
+
+  &__close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+
+    @include respond-to('lg') {
+      display: none;
+    }
+  }
+
+  &__nav {
+    flex: 1;
+    padding: var(--spacing-md) 0;
+    overflow-y: auto;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item {
+    margin: var(--spacing-xs) var(--spacing-md);
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-md);
+    color: var(--color-text-secondary);
+    font-weight: 500;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: var(--color-background);
+      color: var(--color-text-primary);
+      text-decoration: none;
+    }
+
+    &--active {
+      background-color: rgba(37, 99, 235, 0.1); // primary alpha
+      color: var(--color-primary);
+
+      &:hover {
+        background-color: rgba(37, 99, 235, 0.15);
+        color: var(--color-primary);
+      }
+    }
+  }
+
+  &__overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 90;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+
+    &--open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    @include respond-to('lg') {
+      display: none;
+    }
+  }
+}

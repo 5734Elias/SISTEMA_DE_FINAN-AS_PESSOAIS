@@ -35,3 +35,4 @@ Utilizamos múltiplos de 4 (ex: 4px = `0.25rem`).
 - **Button (`<Button />`):** Com variantes (`primary`, `secondary`, `danger`, `ghost`) e tamanhos (`sm`, `md`, `lg`). Contempla `fullWidth`.
 - **Input (`<Input />`):** Input textual padronizado com suporte a `label`, `helperText` e tratamento de erros (`error`).
 - **Card (`<Card />`):** Contêiner composicional contendo `<Card.Header>`, `<Card.Body>` e `<Card.Footer>`, com suporte flexível via `children`.
+

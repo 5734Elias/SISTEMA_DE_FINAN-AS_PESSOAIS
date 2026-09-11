@@ -1,0 +1,27 @@
+@use '../styles/abstracts/breakpoints' as *;
+
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--color-background);
+
+  &__main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0; // Prevent content overflow in flex container
+    
+    @include respond-to('lg') {
+      margin-left: 280px; // Width of the sidebar
+    }
+  }
+
+  &__content {
+    flex: 1;
+    padding: var(--spacing-md);
+    
+    @include respond-to('md') {
+      padding: var(--spacing-xl);
+    }
+  }
+}
