@@ -11,3 +11,4 @@ export const formatCurrency = (value) => {
     currency: 'BRL',
   }).format(value);
 };
+

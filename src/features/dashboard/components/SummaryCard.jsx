@@ -16,3 +16,4 @@ export const SummaryCard = ({ title, value, variant = 'default', icon }) => {
     </Card>
   );
 };
+
