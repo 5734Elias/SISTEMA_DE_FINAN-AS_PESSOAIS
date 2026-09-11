@@ -1,8 +1,17 @@
 import { useTheme } from '../../../context/ThemeContext';
+import { useAuth } from '../../../context/AuthContext';
 import './Header.scss';
 
 export const Header = ({ onMenuClick }) => {
   const { theme, toggleTheme } = useTheme();
+  const { currentUser, logout } = useAuth();
+
+  const getInitials = (name) => {
+    if (!name) return 'US';
+    const parts = name.trim().split(' ');
+    if (parts.length === 1) return parts[0].substring(0, 2).toUpperCase();
+    return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+  };
 
   return (
     <header className="header">
@@ -24,7 +33,6 @@ export const Header = ({ onMenuClick }) => {
           title={theme === 'light' ? 'Mudar para tema escuro' : 'Mudar para tema claro'}
         >
           {theme === 'light' ? (
-            // Ícone da Lua (Dark mode)
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -39,7 +47,6 @@ export const Header = ({ onMenuClick }) => {
               <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
             </svg>
           ) : (
-            // Ícone do Sol (Light mode)
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -64,9 +71,24 @@ export const Header = ({ onMenuClick }) => {
           )}
         </button>
 
+        {/* Informações do Usuário e Botão de Logout */}
         <div className="header__user">
-          <div className="header__avatar">ER</div>
-          <span className="header__user-name">Elias Ribeiro</span>
+          <div className="header__avatar">
+            {getInitials(currentUser?.name)}
+          </div>
+          <div className="header__user-info">
+            <span className="header__user-name">{currentUser?.name || 'Usuário'}</span>
+            <span className="header__user-email">{currentUser?.email}</span>
+          </div>
+          <button 
+            type="button" 
+            className="header__logout-btn" 
+            onClick={logout}
+            title="Sair da conta"
+            aria-label="Sair da conta"
+          >
+            Sair
+          </button>
         </div>
       </div>
     </header>
