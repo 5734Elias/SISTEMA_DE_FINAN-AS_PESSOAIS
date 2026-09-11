@@ -1,7 +1,7 @@
-// Abstracts
-@import 'abstracts/variables';
-@import 'abstracts/breakpoints';
+// Abstracts (apenas carregamento de configuração se necessário, mas as vars CSS vivem no :root no _global.scss ou num _tokens.scss)
+@use 'abstracts/variables';
+@use 'abstracts/breakpoints';
 
 // Base
-@import 'base/reset';
-@import 'base/global';
+@use 'base/reset';
+@use 'base/global';
