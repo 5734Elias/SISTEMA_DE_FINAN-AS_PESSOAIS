@@ -1,18 +1,19 @@
 import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';
+import { ROUTES } from '../../../routes/routePaths';
 import './Sidebar.scss';
 
 export const Sidebar = ({ isOpen, onClose }) => {
   const menuItems = [
-    { label: 'Dashboard', path: '/' },
-    { label: 'Transações', path: '/transactions' },
-    { label: 'Contas', path: '/accounts' },
-    { label: 'Orçamentos', path: '/budgets' },
+    { label: 'Dashboard', path: ROUTES.DASHBOARD },
+    { label: 'Transações', path: ROUTES.TRANSACTIONS },
+    { label: 'Contas & Cartões', path: ROUTES.ACCOUNTS },
+    { label: 'Orçamentos', path: ROUTES.BUDGETS },
+    { label: 'Investimentos', path: ROUTES.INVESTMENTS },
   ];
 
   return (
     <>
-      {/* Overlay for mobile when sidebar is open */}
       <div 
         className={clsx('sidebar__overlay', { 'sidebar__overlay--open': isOpen })}
         onClick={onClose}
@@ -48,4 +49,3 @@ export const Sidebar = ({ isOpen, onClose }) => {
     </>
   );
 };
-

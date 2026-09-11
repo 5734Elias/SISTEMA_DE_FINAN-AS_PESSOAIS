@@ -7,6 +7,7 @@ import Dashboard from '../pages/Dashboard';
 import Transactions from '../pages/Transactions';
 import Accounts from '../pages/Accounts';
 import Budgets from '../pages/Budgets';
+import Investments from '../pages/Investments';
 
 const NotFound = () => <div><h2>Página não encontrada</h2></div>;
 
@@ -18,6 +19,7 @@ export const AppRoutes = () => {
         <Route path={ROUTES.TRANSACTIONS} element={<Transactions />} />
         <Route path={ROUTES.ACCOUNTS} element={<Accounts />} />
         <Route path={ROUTES.BUDGETS} element={<Budgets />} />
+        <Route path={ROUTES.INVESTMENTS} element={<Investments />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

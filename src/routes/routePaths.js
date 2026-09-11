@@ -3,5 +3,5 @@ export const ROUTES = {
   TRANSACTIONS: '/transactions',
   ACCOUNTS: '/accounts',
   BUDGETS: '/budgets',
+  INVESTMENTS: '/investments',
 };
-
