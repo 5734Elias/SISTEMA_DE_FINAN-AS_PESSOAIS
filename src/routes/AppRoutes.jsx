@@ -6,9 +6,8 @@ import { ROUTES } from './routePaths';
 import Dashboard from '../pages/Dashboard';
 import Transactions from '../pages/Transactions';
 import Accounts from '../pages/Accounts';
+import Budgets from '../pages/Budgets';
 
-// Placeholder pages
-const Budgets = () => <div><h2>Orçamentos</h2><p>Em construção...</p></div>;
 const NotFound = () => <div><h2>Página não encontrada</h2></div>;
 
 export const AppRoutes = () => {
