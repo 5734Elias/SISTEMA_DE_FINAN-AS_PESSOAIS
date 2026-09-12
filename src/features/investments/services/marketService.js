@@ -39,7 +39,6 @@ export const fetchMarketQuotes = async () => {
     ];
   } catch (error) {
     console.warn('Usando cotações de contingência offline:', error);
-    // Fallback offline caso não haja conexão
     return [
       { ticker: 'USD / BRL', name: 'Dólar Comercial', price: 5.62, change: 0.35, type: 'currency' },
       { ticker: 'EUR / BRL', name: 'Euro', price: 6.15, change: -0.12, type: 'currency' },
@@ -50,7 +49,7 @@ export const fetchMarketQuotes = async () => {
 };
 
 /**
- * Notícias econômicas e financeiras (simulação dinâmica com links e dados de mercado)
+ * Notícias econômicas e financeiras com links diretos para os principais portais de investimentos
  */
 export const fetchFinancialNews = async () => {
   return [
@@ -58,6 +57,7 @@ export const fetchFinancialNews = async () => {
       id: '1',
       title: 'Copom sinaliza cautela com taxa de juros frente à inflação de serviços',
       source: 'InfoMoney',
+      url: 'https://www.infomoney.com.br/mercados/',
       time: 'Há 25 minutos',
       category: 'Economia',
     },
@@ -65,6 +65,7 @@ export const fetchFinancialNews = async () => {
       id: '2',
       title: 'Bitcoin supera marca histórica em meio à entrada recorde em ETFs institucionais',
       source: 'CoinDesk Brasil',
+      url: 'https://www.coindesk.com/',
       time: 'Há 1 hora',
       category: 'Cripto',
     },
@@ -72,6 +73,7 @@ export const fetchFinancialNews = async () => {
       id: '3',
       title: 'Ibovespa sobe impulsionado pelo setor de commodities e bancos',
       source: 'Valor Econômico',
+      url: 'https://valor.globo.com/financas/',
       time: 'Há 2 horas',
       category: 'Ações',
     },
@@ -79,9 +81,28 @@ export const fetchFinancialNews = async () => {
       id: '4',
       title: 'Fundos Imobiliários de papel batem recorde de dividendos no trimestre',
       source: 'Suno Notícias',
+      url: 'https://www.suno.com.br/noticias/',
       time: 'Há 3 horas',
       category: 'FIIs',
+    },
+    {
+      id: '5',
+      title: 'Análise de mercado, cotações e relatórios macroeconômicos em tempo real',
+      source: 'Investing.com Brasil',
+      url: 'https://br.investing.com/news/',
+      time: 'Destaque do dia',
+      category: 'Geral',
     },
   ];
 };
 
+/**
+ * Portais recomendados de educação e notícias financeiras
+ */
+export const FINANCIAL_PORTALS = [
+  { name: 'InfoMoney', url: 'https://www.infomoney.com.br', icon: '📰' },
+  { name: 'Valor Econômico', url: 'https://valor.globo.com', icon: '📈' },
+  { name: 'Investing.com', url: 'https://br.investing.com', icon: '🌐' },
+  { name: 'Suno Research', url: 'https://www.suno.com.br', icon: '📊' },
+  { name: 'CoinMarketCap', url: 'https://coinmarketcap.com/pt-br/', icon: '🪙' },
+];

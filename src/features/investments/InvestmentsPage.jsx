@@ -4,6 +4,7 @@ import { Modal } from '../../components/feedback';
 import { formatCurrency } from '../../utils/formatCurrency';
 import { useInvestments } from './useInvestments';
 import { AssetForm } from './components/AssetForm';
+import { FINANCIAL_PORTALS } from './services/marketService';
 import './InvestmentsPage.scss';
 
 export const InvestmentsPage = () => {
@@ -34,7 +35,7 @@ export const InvestmentsPage = () => {
         <div>
           <h1 className="investments-page__title">Investimentos & Mercado</h1>
           <p className="investments-page__subtitle">
-            Acompanhe ações, fundos imobiliários, criptomoedas e o mercado financeiro em tempo real.
+            Acompanhe ações, fundos imobiliários, criptomoedas e portais de notícias em tempo real.
           </p>
         </div>
         <div className="investments-page__actions">
@@ -47,7 +48,7 @@ export const InvestmentsPage = () => {
         </div>
       </header>
 
-      {/* Ticker / Cotações em Tempo Real (Internet Feed) */}
+      {/* Cotações em Tempo Real (Internet Feed) */}
       <section className="market-ticker-section">
         <h2 className="market-ticker-section__title">
           <span className="live-indicator">●</span> Cotações ao Vivo do Mercado
@@ -70,6 +71,27 @@ export const InvestmentsPage = () => {
               </div>
             );
           })}
+        </div>
+      </section>
+
+      {/* Atalhos Rápidos para os Principais Portais Financeiros */}
+      <section className="portals-section">
+        <h3 className="portals-section__title">Portais de Notícias & Análises</h3>
+        <div className="portals-grid">
+          {FINANCIAL_PORTALS.map((portal) => (
+            <a
+              key={portal.name}
+              href={portal.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="portal-link-badge"
+              title={`Acessar portal ${portal.name}`}
+            >
+              <span className="portal-link-badge__icon">{portal.icon}</span>
+              <span className="portal-link-badge__name">{portal.name}</span>
+              <span className="portal-link-badge__arrow">↗</span>
+            </a>
+          ))}
         </div>
       </section>
 
@@ -97,7 +119,7 @@ export const InvestmentsPage = () => {
         </Card>
       </section>
 
-      {/* Grid Principal: Carteira de Ativos & Notícias ao Vivo */}
+      {/* Grid Principal: Carteira de Ativos & Notícias ao Vivo com Links */}
       <div className="investments-grid-layout">
         {/* Tabela de Ativos da Carteira */}
         <Card className="portfolio-card">
@@ -163,20 +185,35 @@ export const InvestmentsPage = () => {
           </Card.Body>
         </Card>
 
-        {/* Notícias do Mercado em Tempo Real */}
+        {/* Notícias do Mercado com Links Diretos Clicáveis */}
         <Card className="news-card">
-          <Card.Header title="Notícias & Radar de Mercado" />
+          <Card.Header 
+            title="Radar de Notícias do Mercado" 
+            action={
+              <span className="news-card__hint">Clique para abrir</span>
+            }
+          />
           <Card.Body>
             <div className="news-list">
               {news.map((item) => (
-                <article key={item.id} className="news-item">
+                <a
+                  key={item.id}
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="news-item"
+                  title="Ler matéria completa no portal"
+                >
                   <div className="news-item__meta">
                     <span className="news-item__category">{item.category}</span>
                     <span className="news-item__time">{item.time}</span>
                   </div>
                   <h3 className="news-item__title">{item.title}</h3>
-                  <span className="news-item__source">Fonte: {item.source}</span>
-                </article>
+                  <div className="news-item__footer">
+                    <span className="news-item__source">Fonte: {item.source}</span>
+                    <span className="news-item__external-link">Acessar notícia ↗</span>
+                  </div>
+                </a>
               ))}
             </div>
           </Card.Body>
@@ -196,4 +233,3 @@ export const InvestmentsPage = () => {
     </div>
   );
 };
-

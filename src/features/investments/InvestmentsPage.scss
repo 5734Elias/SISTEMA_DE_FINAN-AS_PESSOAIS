@@ -42,6 +42,66 @@
   }
 }
 
+// Seção de Portais Financeiros
+.portals-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+
+  &__title {
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-secondary);
+    font-weight: 600;
+  }
+}
+
+.portals-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.portal-link-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-md);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &__icon {
+    font-size: 1rem;
+  }
+
+  &__arrow {
+    color: var(--color-text-secondary);
+    font-size: 0.8rem;
+    transition: transform 0.2s ease;
+  }
+
+  &:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+    text-decoration: none;
+
+    .portal-link-badge__arrow {
+      transform: translate(2px, -2px);
+      color: var(--color-primary);
+    }
+  }
+}
+
 // Cotações / Ticker
 .market-ticker-section {
   display: flex;
@@ -231,7 +291,14 @@
   font-weight: 600;
 }
 
-// Notícias
+// Notícias Clicáveis
+.news-card {
+  &__hint {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-secondary);
+  }
+}
+
 .news-list {
   display: flex;
   flex-direction: column;
@@ -247,11 +314,23 @@
   border-bottom: 1px solid var(--color-border);
   transition: all 0.2s ease;
   cursor: pointer;
+  text-decoration: none;
+  color: inherit;
 
   &:hover {
     background-color: var(--color-background);
     border-color: var(--color-primary);
     transform: translateX(4px);
+    text-decoration: none;
+
+    .news-item__title {
+      color: var(--color-primary);
+    }
+
+    .news-item__external-link {
+      color: var(--color-primary);
+      text-decoration: underline;
+    }
   }
 
   &:last-child {
@@ -279,10 +358,25 @@
     color: var(--color-text-primary);
     line-height: 1.4;
     margin: 0;
+    transition: color 0.15s ease;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2px;
   }
 
   &__source {
     font-size: var(--font-size-xs);
     color: var(--color-text-secondary);
+  }
+
+  &__external-link {
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    transition: color 0.15s ease;
   }
 }

@@ -243,3 +243,4 @@ export const AuthPage = ({ mode = 'login' }) => {
     </div>
   );
 };
+
